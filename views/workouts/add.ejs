@@ -1,9 +1,19 @@
-<h1>Add Workout</h1>
-<form action="/workouts/add" method="POST">
-  <input name="exercise" placeholder="Exercise" required>
-  <input name="category" placeholder="Category">
-  <input name="sets" type="number" placeholder="Sets">
-  <input name="reps" type="number" placeholder="Reps">
-  <input name="weight" type="number" placeholder="Weight (kg)">
-  <button>Save</button>
+<%- include('../partials/header') %>
+<h2 class="mb-4">Add Workout</h2>
+<form action="/workouts/add" method="POST" class="col-md-6">
+  <div class="mb-3"><label class="form-label">Exercise</label>
+    <input name="exercise" class="form-control" required></div>
+  <div class="mb-3"><label class="form-label">Category</label>
+    <input name="category" class="form-control"></div>
+  <div class="row">
+    <div class="col mb-3"><label class="form-label">Sets</label>
+      <input name="sets" type="number" class="form-control"></div>
+    <div class="col mb-3"><label class="form-label">Reps</label>
+      <input name="reps" type="number" class="form-control"></div>
+    <div class="col mb-3"><label class="form-label">Weight (kg)</label>
+      <input name="weight" type="number" class="form-control"></div>
+  </div>
+  <button class="btn btn-accent">Save</button>
+  <a href="/workouts" class="btn btn-outline-secondary">Cancel</a>
 </form>
+<%- include('../partials/footer') %>

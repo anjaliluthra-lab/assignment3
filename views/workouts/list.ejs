@@ -1,12 +1,34 @@
-<h1>Workouts</h1>
-<a href="/workouts/add">Add Workout</a>
+<%- include('../partials/header') %>
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h2>All Workouts</h2>
+  <a href="/workouts/add" class="btn btn-accent">+ Add Workout</a>
+</div>
+
+<% if (workouts.length === 0) { %>
+  <p class="text-muted">No workouts yet. Add your first one!</p>
+<% } %>
+
+<div class="row">
 <% workouts.forEach(w => { %>
-  <p>
-    <%= w.exercise %> | <%= w.sets %>x<%= w.reps %> @ <%= w.weight %>kg
-    <a href="/workouts/edit/<%= w._id %>">Edit</a>
-    <form action="/workouts/delete/<%= w._id %>" method="POST" style="display:inline"
-          onsubmit="return confirm('Delete this workout?');">
-      <button>Delete</button>
-    </form>
-  </p>
+  <div class="col-md-4 mb-4">
+    <div class="card workout-card h-100">
+      <div class="card-body">
+        <h5 class="card-title"><%= w.exercise %></h5>
+        <span class="badge bg-secondary"><%= w.category %></span>
+        <p class="mt-3 mb-1"><%= w.sets %> sets × <%= w.reps %> reps</p>
+        <p class="mb-1"><%= w.weight %> kg</p>
+        <small class="text-muted"><%= w.date.toDateString() %></small>
+      </div>
+      <div class="card-footer bg-white border-0 d-flex gap-2">
+        <a href="/workouts/edit/<%= w._id %>" class="btn btn-sm btn-outline-primary">Edit</a>
+        <!-- Delete form: confirm() asks the user before the POST is sent -->
+        <form action="/workouts/delete/<%= w._id %>" method="POST"
+              onsubmit="return confirm('Delete this workout?');">
+          <button class="btn btn-sm btn-outline-danger">Delete</button>
+        </form>
+      </div>
+    </div>
+  </div>
 <% }) %>
+</div>
+<%- include('../partials/footer') %>

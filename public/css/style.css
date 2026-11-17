@@ -1,0 +1,20 @@
+/* Custom styles written by me. Bootstrap is used as the base framework. */
+:root { --navy: #0f172a; --accent: #f97316; --light: #f8fafc; }
+
+body { font-family: 'Poppins', sans-serif; background: var(--light); }
+
+.navbar-custom { background: var(--navy); }
+.navbar-custom .nav-link:hover { color: var(--accent); }
+
+.hero {
+  background: linear-gradient(135deg, var(--navy), #1e293b);
+  color: white; padding: 100px 0; border-radius: 16px; text-align: center;
+}
+.hero h1 { font-weight: 700; font-size: 3rem; }
+.hero span { color: var(--accent); }
+
+.btn-accent { background: var(--accent); color: white; border: none; }
+.btn-accent:hover { background: #ea580c; color: white; }
+
+.workout-card { border: none; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,.08); }
+.footer-custom { background: var(--navy); color: #cbd5e1; }
