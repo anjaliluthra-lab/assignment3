@@ -1,0 +1,12 @@
+<h1>Workouts</h1>
+<a href="/workouts/add">Add Workout</a>
+<% workouts.forEach(w => { %>
+  <p>
+    <%= w.exercise %> | <%= w.sets %>x<%= w.reps %> @ <%= w.weight %>kg
+    <a href="/workouts/edit/<%= w._id %>">Edit</a>
+    <form action="/workouts/delete/<%= w._id %>" method="POST" style="display:inline"
+          onsubmit="return confirm('Delete this workout?');">
+      <button>Delete</button>
+    </form>
+  </p>
+<% }) %>

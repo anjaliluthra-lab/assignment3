@@ -1,0 +1,9 @@
+<h1>Edit Workout</h1>
+<form action="/workouts/edit/<%= workout._id %>" method="POST">
+  <input name="exercise" value="<%= workout.exercise %>" required>
+  <input name="category" value="<%= workout.category %>">
+  <input name="sets" type="number" value="<%= workout.sets %>">
+  <input name="reps" type="number" value="<%= workout.reps %>">
+  <input name="weight" type="number" value="<%= workout.weight %>">
+  <button>Update</button>
+</form>

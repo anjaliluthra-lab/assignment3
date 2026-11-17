@@ -7,7 +7,8 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true })); // parse form data
 app.use(express.static('public'));               // serve CSS
 
-app.get('/', (req, res) => res.send('It works!')); // temporary test route
+app.get('/', (req, res) => res.render('index'));         // splash page
+app.use('/workouts', require('./routes/workouts'));      // CRUD routes
 
 connectDB()
   .then(() => app.listen(process.env.PORT || 3000, () => console.log('Server running on port 3000')))
